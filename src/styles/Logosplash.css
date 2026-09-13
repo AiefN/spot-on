@@ -1,0 +1,155 @@
+.sonars-waves {
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.w-1 { width: 80px; height: 30px; animation-delay: 0s;}
+.w-2 { width: 110px; height: 45px; animation-delay: 0.6s;}
+.w-3 { width: 140px; height: 60px; animation-delay: 1.2s;}
+
+
+@keyframes sonarPulse {
+    0% { transform: translateX(-50%) scale(0.8); opacity: 0.8;}
+    100% { transform: translateX(-50%) scale(1.4) ; opacity: 0;}
+
+}
+
+
+.pulse-anime {
+    animation: shake 0.3 ease-in-out;
+
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg) scale(1.05); }
+    25% { transform: rotate(-5deg) scale(1.05); }
+    75% { transform: rotate(5deg) scale(1.05); }
+}
+
+
+.water-splash-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.spalsh-dot {
+    position: absolute;
+    background-color: #90e0ef;
+    border-radius: 50%;
+    animation: splashOut 0.6s ease-out forwards;
+
+}
+
+
+.dot-1 {width: 12px; height: 12px; top: 10%; left: 30%; }
+.dot-1 {width: 8px; height: 8px; top: 20%; left: 20%; }
+.dot-1 {width: 14px; height: 14px; top: 30%; left: 15%; }
+.dot-1 {width: 10px; height: 10px; top: 20%; left: 25%; }
+
+
+@keyframes splashOut {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%, -100%) scale(2); opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
