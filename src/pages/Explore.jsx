@@ -5,6 +5,7 @@ import { supabase } from '../services/supabaseClient';
 
 export default function Explore() {
   const [filter, setFilter] = useState('Semua');
+  const [searchQuery, setSearchQuery] = useState('');
   const [spots, setSpots] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -34,9 +35,15 @@ export default function Explore() {
   }, []);
 
  
-  const filteredSpots = filter === 'Semua' 
-    ? spots 
-    : spots.filter(spot => spot.category === filter);
+  const filteresSpots = spots.filter(spot => {
+    const matchCategory = filter === 'Semua' || spot.category === filter;
+
+    const matchSearch =
+    spot.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    spot.location.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchcategory && matchSearch;
+  })
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -46,7 +53,14 @@ export default function Explore() {
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Eksplorasi Spot Mancing</h1>
         
         
-        <div className="flex gap-4 mb-8 overflow-x-auto pb-2">
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+            <input
+            type="text"
+            placeholder="Cari nama spot atau lokasi..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full md:w-1/3 px-4 py-2 rounded-full border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+            />
           {['Semua', 'Alam Terbuka', 'Galatama', 'Kuliner'].map((cat) => (
             <button
               key={cat}
@@ -74,9 +88,11 @@ export default function Explore() {
               ))}
             </div>
 
-            {filteredSpots.length === 0 && (
-              <p className="text-center text-gray-500 mt-10">Belum ada spot di kategori ini.</p>
-            )}
+           {filteredSpots.length === 0 && (
+            <p className="text-center text-gray-500 mt-10">
+              Pencarian "{searchQuery}" di kategori "{filter}" tidak ditemukan.
+            </p>
+           )}
           </>
         )}
       </main>
