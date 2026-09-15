@@ -1,3 +1,6 @@
+
+
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import '../../styles/LogoSplash.css';
 
@@ -42,11 +45,10 @@ export default function Navbar() {
                 )}
             </div>
             
-        
             <div className="hidden md:flex gap-6 text-blue-900 font-semibold">
-                <a href="/" className="hover:text-blue-500">Beranda</a>
-                <a href="/explore" className="hover:text-blue-500">Peta Spot</a>
-                <a href="/add-spot" className="hover:text-blue-500">Tambah Spot</a>
+                <Link to="/" className="hover:text-blue-500">Beranda</Link>
+                <Link to="/explore" className="hover:text-blue-500">Peta Spot</Link>
+                <Link to="/add" className="hover:text-blue-500">Tambah Spot</Link>
             </div>
             
         </nav>
