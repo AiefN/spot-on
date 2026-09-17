@@ -1,0 +1,13 @@
+{
+  "name": "spot-on-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Spot On Monorepo Workspace (Frontend & Backend)",
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev": "npm --prefix frontend run dev",
+    "start:backend": "npm --prefix backend start"
+  }
+}
